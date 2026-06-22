@@ -14,7 +14,7 @@ Features
 ✔ Authentication
 ✔ Design System
 ✔ E2E Testing
-d
+
 Architecture
 
 - Nx Monorepo
