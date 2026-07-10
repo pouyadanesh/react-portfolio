@@ -2,7 +2,15 @@
   "name": "@ai-team-workspace/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx dev @ai-team-workspace/ai-team-workspace",
+    "build": "nx build @ai-team-workspace/ai-team-workspace",
+    "start": "nx start @ai-team-workspace/ai-team-workspace",
+    "test": "nx test @ai-team-workspace/ai-team-workspace",
+    "lint": "nx lint @ai-team-workspace/ai-team-workspace",
+    "graph": "nx graph",
+    "clean": "nx reset"
+  },
   "private": true,
   "dependencies": {
     "@tailwindcss/postcss": "^4.3.1",
