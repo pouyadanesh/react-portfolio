@@ -7,9 +7,6 @@
       "path": "./apps/ai-team-workspace"
     },
     {
-      "path": "./libs/ui"
-    },
-    {
       "path": "./libs/types"
     },
     {
@@ -17,6 +14,9 @@
     },
     {
       "path": "./libs/utils"
+    },
+    {
+      "path": "./libs/ui"
     }
   ]
 }

@@ -6,11 +6,7 @@
     "emitDeclarationOnly": false,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
@@ -21,14 +17,9 @@
       }
     ],
     "paths": {
-      "@/*": [
-        "./src/*"
-      ]
+      "@/*": ["./src/*"]
     },
-    "types": [
-      "jest",
-      "node"
-    ],
+    "types": ["jest", "node"],
     "outDir": "dist",
     "rootDir": "src",
     "tsBuildInfoFile": "dist/tsconfig.tsbuildinfo"
@@ -40,7 +31,10 @@
     "src/**/*.jsx",
     "../../apps/ai-team-workspace/.next/types/**/*.ts",
     "../../dist/apps/ai-team-workspace/.next/types/**/*.ts",
-    "next-env.d.ts"
+    "next-env.d.ts",
+    "../../libs/ui/src/layout/app-layout.tsx",
+    "../../libs/ui/src/layout/app-header.tsx",
+    "../../libs/ui/src/layout/app-content.tsx"
   ],
   "exclude": [
     "out-tsc",
@@ -54,5 +48,10 @@
     "eslint.config.js",
     "eslint.config.cjs",
     "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../../libs/ui"
+    }
   ]
 }
