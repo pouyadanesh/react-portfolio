@@ -5,24 +5,42 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
-import { Delete, Edit, EllipsisVertical, Trash2 } from 'lucide-react';
+import { Edit, EllipsisVertical, Trash2 } from 'lucide-react';
 
 export default function ProjectActionsMenu() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <EllipsisVertical className="absolute top-2 right-1 w-5 h-5" />
+        <button
+          className="
+            absolute right-2 top-2
+            inline-flex h-8 w-8 items-center justify-center
+            rounded-md
+            text-muted-foreground
+            transition-colors
+            hover:bg-accent
+            hover:text-foreground
+            focus-visible:outline-none
+            focus-visible:ring-2
+            focus-visible:ring-ring
+          "
+        >
+          <EllipsisVertical className="h-4 w-4" />
+        </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="bg-gray-300">
+
+      <DropdownMenuContent align="end" className="w-44">
         <DropdownMenuItem>
-          <Edit />
-          Edit
+          <Edit className="h-4 w-4" />
+          <span>Edit</span>
         </DropdownMenuItem>
-        <DropdownMenuItem variant='destructive'>
-          <Trash2 />
-          Delete
-        </DropdownMenuItem>
+
         <DropdownMenuSeparator />
+
+        <DropdownMenuItem variant="destructive">
+          <Trash2 className="h-4 w-4" />
+          <span>Delete</span>
+        </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
   );

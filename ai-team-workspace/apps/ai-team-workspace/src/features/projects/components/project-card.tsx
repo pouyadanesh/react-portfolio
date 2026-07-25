@@ -1,5 +1,4 @@
 import { Project } from '@/shared/types/projectModel';
-import { EllipsisVertical } from 'lucide-react';
 import ProjectActionsMenu from './project-actions-menu';
 
 interface ProjectModel {
@@ -8,17 +7,36 @@ interface ProjectModel {
 
 export default function ProjectCard({ project }: ProjectModel) {
   return (
-    <div className="relative cursor-pointer ring-1 p-1 rounded-lg">
-      <div className="flex flex-col">
-        <div className="flex flex-row justify-start items-center gap-2">
+    <div
+      className="
+        group relative rounded-lg border border-border bg-card p-4
+        text-card-foreground shadow-sm
+        transition-all duration-200
+        hover:border-primary/30
+        hover:shadow-md
+        hover:bg-accent/30
+        cursor-pointer
+      "
+    >
+      <div className="flex flex-col gap-2">
+        <div className="flex items-center gap-3">
           <div
-            className={`w-5 h-5 rounded-full`}
+            className="h-4 w-4 shrink-0 rounded-full ring-2 ring-background"
             style={{ backgroundColor: project.color }}
           />
-          <span className="mb-1 text-destructive">{project.name}</span>
+
+          <h3 className="truncate font-semibold text-foreground">
+            {project.name}
+          </h3>
         </div>
-        <span className="text-lg font-medium">{project.description}</span>
+
+        {project.description && (
+          <p className="line-clamp-2 text-sm text-muted-foreground">
+            {project.description}
+          </p>
+        )}
       </div>
+
       <ProjectActionsMenu />
     </div>
   );
