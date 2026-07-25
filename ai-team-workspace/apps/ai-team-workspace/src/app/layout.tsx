@@ -1,4 +1,4 @@
-import { ThemeProvider } from '../../../../libs/ui/src/providers/theme-provider';
+import { ThemeProvider } from "@ai-team-workspace/ui";
 import './global.css';
 
 export const metadata = {

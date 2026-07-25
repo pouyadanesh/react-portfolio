@@ -16,6 +16,12 @@
     "skipLibCheck": true,
     "strict": true,
     "target": "es2022",
-    "customConditions": ["@ai-team-workspace/source"]
+    "customConditions": ["@ai-team-workspace/source"],
+    "paths": {
+      "@ai-team-workspace/ui": ["./libs/ui/src/index.ts"],
+      "@ai-team-workspace/types": ["./libs/types/src/index.ts"],
+      "@ai-team-workspace/utils": ["./libs/utils/src/index.ts"],
+      "@ai-team-workspace/api": ["./libs/api/src/index.ts"]
+    }
   }
 }
