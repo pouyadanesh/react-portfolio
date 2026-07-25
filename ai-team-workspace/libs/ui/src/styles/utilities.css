@@ -1,0 +1,11 @@
+.surface {
+    @apply bg-card border border-border rounded-xl;
+}
+
+.panel {
+    @apply bg-card shadow-xs border;
+}
+
+.page-container {
+    @apply mx-auto max-w-7xl px-6;
+}

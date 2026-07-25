@@ -1,3 +1,6 @@
+import ProjectsList from '@/features/projects/components/projects-list';
+import { projects } from '@/mock/projects';
+
 export default function ProjectsPage() {
-  return <h1>Projects</h1>;
+  return <ProjectsList projects={projects} />;
 }

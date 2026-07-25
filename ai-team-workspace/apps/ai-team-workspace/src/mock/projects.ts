@@ -1,0 +1,68 @@
+import { Project } from "@/shared/types/projectModel";
+
+export const projects: Project[] = [
+  {
+    id: "1",
+    name: "AI Team Workspace",
+    description: "Collaborative AI-powered workspace for managing projects and conversations.",
+    color: "#3B82F6",
+    createdAt: new Date("2026-07-01T09:00:00Z"),
+    updatedAt: new Date("2026-07-10T14:20:00Z"),
+  },
+  {
+    id: "2",
+    name: "Marketing Website",
+    description: "Corporate website built with Next.js and Tailwind CSS.",
+    color: "#10B981",
+    createdAt: new Date("2026-06-20T11:15:00Z"),
+    updatedAt: new Date("2026-07-08T16:45:00Z"),
+  },
+  {
+    id: "3",
+    name: "Mobile Companion",
+    description: "Cross-platform mobile application for project collaboration.",
+    color: "#F59E0B",
+    createdAt: new Date("2026-05-14T08:30:00Z"),
+    updatedAt: new Date("2026-07-05T12:10:00Z"),
+  },
+  {
+    id: "4",
+    name: "Design System",
+    description: "Reusable UI component library shared across applications.",
+    color: "#8B5CF6",
+    createdAt: new Date("2026-04-18T13:45:00Z"),
+    updatedAt: new Date("2026-07-02T10:30:00Z"),
+  },
+  {
+    id: "5",
+    name: "Customer Portal",
+    description: "Secure customer dashboard with analytics and reporting.",
+    color: "#EF4444",
+    createdAt: new Date("2026-03-12T15:20:00Z"),
+    updatedAt: new Date("2026-07-11T08:55:00Z"),
+  },
+  {
+    id: "6",
+    name: "Knowledge Base",
+    description: "Centralized documentation and AI-assisted search platform.",
+    color: "#06B6D4",
+    createdAt: new Date("2026-02-25T10:10:00Z"),
+    updatedAt: new Date("2026-06-30T17:40:00Z"),
+  },
+  {
+    id: "7",
+    name: "DevOps Dashboard",
+    description: "Monitoring deployments, pipelines, and infrastructure health.",
+    color: "#84CC16",
+    createdAt: new Date("2026-01-28T07:50:00Z"),
+    updatedAt: new Date("2026-07-09T19:15:00Z"),
+  },
+  {
+    id: "8",
+    name: "Analytics Hub",
+    description: "Interactive analytics platform with customizable reports.",
+    color: "#EC4899",
+    createdAt: new Date("2025-12-15T09:40:00Z"),
+    updatedAt: new Date("2026-07-07T11:25:00Z"),
+  },
+];
