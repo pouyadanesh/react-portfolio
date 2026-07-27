@@ -1,3 +1,5 @@
+'use client';
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -6,8 +8,22 @@ import {
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
 import { Edit, EllipsisVertical, Trash2 } from 'lucide-react';
+import { useState } from 'react';
+import ProjectDialog from './project-dialog';
+import { Project } from '@/shared/types/projectModel';
 
-export default function ProjectActionsMenu() {
+interface IProps {
+  project: Project;
+  onEdit: () => void;
+  onDelete: () => void;
+}
+
+export default function ProjectActionsMenu({
+  project,
+  onEdit,
+  onDelete,
+}: IProps) {
+  const [open, setOpen] = useState<boolean>(false);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -30,14 +46,14 @@ export default function ProjectActionsMenu() {
       </DropdownMenuTrigger>
 
       <DropdownMenuContent align="end" className="w-44">
-        <DropdownMenuItem>
+        <DropdownMenuItem onClick={onEdit}>
           <Edit className="h-4 w-4" />
           <span>Edit</span>
         </DropdownMenuItem>
 
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem variant="destructive">
+        <DropdownMenuItem variant="destructive" onClick={onDelete}>
           <Trash2 className="h-4 w-4" />
           <span>Delete</span>
         </DropdownMenuItem>

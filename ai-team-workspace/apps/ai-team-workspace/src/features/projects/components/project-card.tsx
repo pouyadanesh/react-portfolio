@@ -1,11 +1,13 @@
 import { Project } from '@/shared/types/projectModel';
 import ProjectActionsMenu from './project-actions-menu';
+import ProjectDialog from './project-dialog';
 
 interface ProjectModel {
   project: Project;
+  onEdit: () => void;
 }
 
-export default function ProjectCard({ project }: ProjectModel) {
+export default function ProjectCard({ project, onEdit }: ProjectModel) {
   return (
     <div
       className="
@@ -37,7 +39,11 @@ export default function ProjectCard({ project }: ProjectModel) {
         )}
       </div>
 
-      <ProjectActionsMenu />
+      <ProjectActionsMenu
+        project={project}
+        onEdit={onEdit}
+        onDelete={() => console.log('delete', project)}
+      />
     </div>
   );
 }
