@@ -1,5 +1,6 @@
-import { ThemeProvider } from "@ai-team-workspace/ui";
+import { ThemeProvider } from '@ai-team-workspace/ui';
 import './global.css';
+import { QueryProvider } from '@/providers/query-provider';
 
 export const metadata = {
   title: 'Welcome to ',
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body>
-        <ThemeProvider>{children}</ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>{children}</ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   );

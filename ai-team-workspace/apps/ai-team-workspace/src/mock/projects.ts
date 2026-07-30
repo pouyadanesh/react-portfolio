@@ -1,6 +1,6 @@
 import { Project } from "@/shared/types/projectModel";
 
-export const projects: Project[] = [
+export var projects: Project[] = [
   {
     id: "1",
     name: "AI Team Workspace",

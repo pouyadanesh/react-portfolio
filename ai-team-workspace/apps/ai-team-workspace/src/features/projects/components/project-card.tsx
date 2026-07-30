@@ -1,13 +1,19 @@
+'use client';
+
 import { Project } from '@/shared/types/projectModel';
 import ProjectActionsMenu from './project-actions-menu';
-import ProjectDialog from './project-dialog';
 
 interface ProjectModel {
   project: Project;
   onEdit: () => void;
+  onDelete: () => void;
 }
 
-export default function ProjectCard({ project, onEdit }: ProjectModel) {
+export default function ProjectCard({
+  project,
+  onEdit,
+  onDelete,
+}: ProjectModel) {
   return (
     <div
       className="
@@ -41,8 +47,9 @@ export default function ProjectCard({ project, onEdit }: ProjectModel) {
 
       <ProjectActionsMenu
         project={project}
+        key={project.id}
         onEdit={onEdit}
-        onDelete={() => console.log('delete', project)}
+        onDelete={onDelete}
       />
     </div>
   );

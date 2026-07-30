@@ -6,7 +6,24 @@ import { X } from 'lucide-react';
 
 import { cn } from '@/shared/lib/utils';
 
-const Dialog = DialogPrimitive.Root;
+type DialogProps = React.ComponentProps<typeof DialogPrimitive.Root>;
+
+const Dialog = ({ onOpenChange, ...props }: DialogProps) => {
+  return (
+    <DialogPrimitive.Root
+      {...props}
+      onOpenChange={(open) => {
+        onOpenChange?.(open);
+
+        if (!open) {
+          requestAnimationFrame(() => {
+            document.body.style.pointerEvents = "";
+          });
+        }
+      }}
+    />
+  );
+};
 
 const DialogTrigger = DialogPrimitive.Trigger;
 

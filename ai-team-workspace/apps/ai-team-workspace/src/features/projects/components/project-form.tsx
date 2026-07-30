@@ -1,3 +1,5 @@
+'use client';
+
 import { Controller, useForm } from 'react-hook-form';
 import { projectSchema } from '../schemas/project.scehma';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -26,13 +28,16 @@ import {
   InputGroupTextarea,
 } from '@/shared/components/ui/input-group';
 import { Project } from '@/shared/types/projectModel';
+import { useEffect } from 'react';
+import { DialogClose } from '@/shared/components/ui/dialog';
 
 interface IProps {
   mode: string;
   project?: Project;
+  handleSubmit: (data: z.infer<typeof projectSchema>) => void;
 }
 
-export default function ProjectForm({ mode, project }: IProps) {
+export default function ProjectForm({ mode, project, handleSubmit }: IProps) {
   const form = useForm<z.infer<typeof projectSchema>>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
@@ -42,29 +47,28 @@ export default function ProjectForm({ mode, project }: IProps) {
     },
   });
 
-  if (mode === 'edit' && project) {
-    form.setValues(project);
-  }
+  useEffect(() => {
+    if (mode === 'edit' && project) {
+      form.setValues(project);
+    }
+  }, []);
 
   const title = mode === 'create' ? 'Create Project' : 'Edit Project';
 
   const buttonLabel = mode === 'create' ? 'Submit' : 'Save changes';
 
   function onSubmit(data: z.infer<typeof projectSchema>) {
-    console.log(data);
-    if (mode === 'create') {
-    } else {
-    }
+    handleSubmit(data);
   }
 
   return (
     <Card className="w-full sm:max-w-md">
-      <CardHeader>
-        <CardTitle>{title}</CardTitle>
-        <CardDescription>These are the project details</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
+      <form id="form-rhf-demo" onSubmit={form.handleSubmit(onSubmit)}>
+        <CardHeader>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>These are the project details</CardDescription>
+        </CardHeader>
+        <CardContent>
           <FieldGroup>
             <Controller
               name="name"
@@ -120,18 +124,22 @@ export default function ProjectForm({ mode, project }: IProps) {
               )}
             />
           </FieldGroup>
-        </form>
-      </CardContent>
-      <CardFooter>
-        <Field orientation="horizontal">
-          <Button type="button" variant="outline" onClick={() => form.reset()}>
-            Reset
-          </Button>
-          <Button type="submit" form="form-rhf-demo">
-            {buttonLabel}
-          </Button>
-        </Field>
-      </CardFooter>
+        </CardContent>
+        <CardFooter>
+          <Field orientation="horizontal">
+            <Button
+              type="button"
+              variant="outline"
+              onClick={() => form.reset()}
+            >
+              Reset
+            </Button>
+              <Button type="submit" form="form-rhf-demo">
+                {buttonLabel}
+              </Button>
+          </Field>
+        </CardFooter>
+      </form>
     </Card>
   );
 }

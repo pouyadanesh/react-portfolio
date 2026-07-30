@@ -1,6 +1,9 @@
+"use client"
+
 import ProjectsList from '@/features/projects/components/projects-list';
-import { projects } from '@/mock/projects';
+import { useProjects } from '@/features/projects/hooks/useProjects';
 
 export default function ProjectsPage() {
-  return <ProjectsList projects={projects} />;
+  const {data} = useProjects();
+  return <ProjectsList projects={data ?? []} />;
 }

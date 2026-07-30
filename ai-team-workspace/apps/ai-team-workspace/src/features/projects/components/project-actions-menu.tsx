@@ -7,10 +7,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
-import { Edit, EllipsisVertical, Trash2 } from 'lucide-react';
-import { useState } from 'react';
-import ProjectDialog from './project-dialog';
 import { Project } from '@/shared/types/projectModel';
+import { Edit, EllipsisVertical, Trash2 } from 'lucide-react';
 
 interface IProps {
   project: Project;
@@ -23,7 +21,6 @@ export default function ProjectActionsMenu({
   onEdit,
   onDelete,
 }: IProps) {
-  const [open, setOpen] = useState<boolean>(false);
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>

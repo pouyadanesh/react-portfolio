@@ -1,18 +1,51 @@
-import { projects } from "@/mock/projects";
-import { ProjectFormValues } from "../schemas/project.scehma";
+import { projects } from '@/mock/projects';
+import { ProjectFormValues } from '../schemas/project.scehma';
 
 export const projectService = {
   getAll: async () => projects,
 
   create: async (project: ProjectFormValues) => {
-    // mock implementation
+    const newProjects = [
+      ...projects,
+      {
+        ...project,
+        description: project.description ?? '',
+        id: `${new Date().getTime()}`,
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+    ];
+
+    return newProjects;
   },
 
-  update: async (id: string, project: ProjectFormValues) => {
-    // mock implementation
+  update: async ({
+    id,
+    project,
+  }: {
+    id: string;
+    project: ProjectFormValues;
+  }) => {
+    const newProjects = projects;
+    const fIndex = newProjects.findIndex((f) => f.id === id);
+    const f = newProjects[fIndex];
+    newProjects.splice(fIndex, 1, {
+      ...f,
+      description: project.description ?? '',
+      color: project.color,
+      name: project.name,
+      updatedAt: new Date(),
+    });
+    return newProjects;
   },
 
   delete: async (id: string) => {
-    // mock implementation
+    const index = projects.findIndex((p) => p.id === id);
+
+    if (index !== -1) {
+      projects.splice(index, 1);
+    }
+
+    return true;
   },
 };
