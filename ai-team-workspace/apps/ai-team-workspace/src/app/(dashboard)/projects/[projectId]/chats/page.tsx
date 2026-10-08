@@ -1,14 +1,16 @@
 'use client';
 
-import { ProjectListSkeleton } from '@/features/projects/components/project-list-skeleton';
-import ProjectsList from '@/features/projects/components/projects-list';
-import { useProjects } from '@/features/projects/hooks/useProjects';
+import ChatList from '@/features/chat/components/chat-list';
+import { ChatListSkeleton } from '@/features/chat/components/chat-list-skeleton';
+import { useProjectChats } from '@/features/chat/hooks/useProjectChats';
 import { EmptyState, ErrorState, getErrorMessage } from '@ai-team-workspace/ui';
+import { useParams } from 'next/navigation';
 
-export default function ProjectsPage() {
-  const { data, isLoading, isError, error } = useProjects();
+export default function ChatPage() {
+  const params = useParams();
+  const { data, isLoading, isError, error } = useProjectChats(params.projectId as string);
   if (isLoading) {
-    return <ProjectListSkeleton />;
+    return <ChatListSkeleton />;
   }
 
   if (isError) {
@@ -30,5 +32,5 @@ export default function ProjectsPage() {
       />
     );
   }
-  return <ProjectsList projects={data} />;
+  return <ChatList chats={data} />;
 }

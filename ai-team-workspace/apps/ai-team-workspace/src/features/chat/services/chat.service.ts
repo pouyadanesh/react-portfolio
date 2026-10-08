@@ -1,17 +1,21 @@
+import { chats } from '@/mock/chats';
 import { projects } from '@/mock/projects';
-import { ProjectFormValues } from '../schemas/project.scehma';
+import { ChatFormValues } from '../schemas/chat.schema';
 
-export const projectService = {
-  getAll: async () => projects,
+export const chatService = {
+  getAll: async () => chats,
+
+  getByProjectId: async (projectId: string) =>
+    chats.filter((chat) => chat.projectId === projectId),
 
   getOne: async (id: string) => projects.find(f => f.id === id),
 
-  create: async (project: ProjectFormValues) => {
+  create: async (chat: ChatFormValues) => {
     const newProjects = [
       ...projects,
       {
-        ...project,
-        description: project.description ?? '',
+        ...chat,
+        description: chat.description ?? '',
         id: `${new Date().getTime()}`,
         createdAt: new Date(),
         updatedAt: new Date(),
@@ -23,19 +27,19 @@ export const projectService = {
 
   update: async ({
     id,
-    project,
+    chat,
   }: {
     id: string;
-    project: ProjectFormValues;
+    chat: ChatFormValues;
   }) => {
     const newProjects = projects;
     const fIndex = newProjects.findIndex((f) => f.id === id);
     const f = newProjects[fIndex];
     newProjects.splice(fIndex, 1, {
       ...f,
-      description: project.description ?? '',
-      color: project.color,
-      name: project.name,
+      description: chat.description ?? '',
+      color: chat.color,
+      name: chat.name,
       updatedAt: new Date(),
     });
     return newProjects;

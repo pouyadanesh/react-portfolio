@@ -1,4 +1,4 @@
-import { Project } from "@/shared/types/projectModel";
+import { Project } from "../../../../libs/types/src/lib/projectModel";
 
 export var projects: Project[] = [
   {

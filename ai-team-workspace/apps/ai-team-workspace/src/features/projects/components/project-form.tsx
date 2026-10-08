@@ -27,9 +27,8 @@ import {
   InputGroupText,
   InputGroupTextarea,
 } from '@/shared/components/ui/input-group';
-import { Project } from '@/shared/types/projectModel';
+import type { Project } from '@ai-team-workspace/types';
 import { useEffect } from 'react';
-import { DialogClose } from '@/shared/components/ui/dialog';
 
 interface IProps {
   mode: string;

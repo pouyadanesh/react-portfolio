@@ -1,6 +1,6 @@
 "use client"
 
-import { Project } from '@/shared/types/projectModel';
+import type { Project } from '@ai-team-workspace/types';
 import ProjectForm from './project-form';
 import {
   Dialog,

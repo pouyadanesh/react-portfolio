@@ -1,6 +1,6 @@
 'use client';
 
-import { Project } from '@/shared/types/projectModel';
+import type { Project } from '@ai-team-workspace/types';
 import ProjectCard from './project-card';
 import ProjectDialog from './project-dialog';
 import ProjectDialogDelete from './project-dialog-delete';

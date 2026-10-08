@@ -34,7 +34,8 @@
     "next-env.d.ts",
     "../../libs/ui/src/layout/app-layout.tsx",
     "../../libs/ui/src/layout/app-header.tsx",
-    "../../libs/ui/src/layout/app-content.tsx"
+    "../../libs/ui/src/layout/app-content.tsx",
+    "../../libs/types/src/lib/projectModel.ts"
   ],
   "exclude": [
     "out-tsc",
@@ -50,6 +51,9 @@
     "eslint.config.mjs"
   ],
   "references": [
+    {
+      "path": "../../libs/types"
+    },
     {
       "path": "../../libs/ui"
     }

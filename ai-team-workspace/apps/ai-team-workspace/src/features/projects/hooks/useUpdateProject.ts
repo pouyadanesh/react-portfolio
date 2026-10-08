@@ -7,7 +7,6 @@ export function useUpdateProject() {
   return useMutation({
     mutationFn: projectService.update,
     onSuccess: (data) => {
-      console.warn(data);
       queryClient.setQueryData(['projects'], data);
     },
   });

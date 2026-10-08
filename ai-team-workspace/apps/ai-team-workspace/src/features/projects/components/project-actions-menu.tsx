@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/shared/components/ui/dropdown-menu';
-import { Project } from '@/shared/types/projectModel';
+import type { Project } from '@ai-team-workspace/types';
 import { Edit, EllipsisVertical, Trash2 } from 'lucide-react';
 
 interface IProps {
